@@ -1,0 +1,408 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-lg {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+#header {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#header a,
+#header button {
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease;
+}
+
+#header a:hover,
+#header button:hover {
+    color: #4b7f5b;
+}
+
+#header.scrolled a,
+#header.scrolled button {
+    color: #2D3748;
+}
+
+#header.scrolled a:hover,
+#header.scrolled button:hover {
+    color: #4b7f5b;
+}
+
+.btn-primary {
+    background-color: #4A7D6D;
+    border-color: #4A7D6D;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #508776;
+}
+
+.grid-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+    gap: 1rem;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    background-color: #f0f0f0;
+}
+
+.grid-item.large {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover .overlay {
+    transform: translateY(0);
+}
+
+.overlay h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .grid-masonry {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-auto-rows: 200px;
+    }
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .grid-masonry {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-auto-rows: 150px;
+    }
+}
+
+/* Adjust about section image */
+.about-image {
+    max-height: 400px;
+    object-fit: scale-down;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .about-image {
+        max-height: 600px;
+    }
+}
+
+/* Responsive banner adjustments */
+@media (max-width: 640px) {
+    #home {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #home {
+        height: 70vh;
+    }
+}
+
+/* Adjust vertical positioning of banner content */
+#home .container {
+    padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+    #home .container {
+        padding-top: 6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #home .container {
+        padding-top: 8rem;
+    }
+}
+
+/* Adjust banner image styles */
+#home img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments for small devices */
+@media (max-width: 640px) {
+    #home {
+        height: 80vh;
+    }
+
+    #home img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Updated styles for responsiveness */
+@media (max-width: 768px) {
+    .grid-masonry {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-auto-rows: 150px;
+    }
+
+    #header {
+        padding: 1rem 0; /* Adjust header padding */
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1rem; /* Adjust button padding */
+    }
+}
+
+/* Footer styles */
+footer {
+    background: linear-gradient(90deg, #151616, #2a2a2a);
+    padding: 2rem 0; /* Increased padding for footer */
+}
+
+footer h2 {
+    color: #6bb8a5; /* Footer heading color */
+}
+
+footer p,
+footer a {
+    color: #c3cac9; /* Footer text color */
+}
+
+footer a:hover {
+    color: #6bbe92; /* Footer link hover color */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 640px) {
+    footer .container {
+        flex-direction: column; /* Stack footer items on small screens */
+        align-items: center; /* Center align items */
+        gap: 4rem; /* Add gap of 4rem between footer items */
+        padding: 2rem; /* Add padding to the footer container */
+    }
+
+    footer .mb-6 {
+        margin-bottom: 1.5rem; /* Adjust margin for footer items */
+    }
+}
+
+.about-image-overlay {
+    position: absolute;
+    bottom: -4px; /* Position at the bottom */
+    right: -1px;  /* Position at the right */
+    background-color: #1d241f; /* Background color */
+    color: white; /* Text color */
+    padding: 14px; /* Padding */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow */
+    transition: right 0.3s ease-in-out; /* Transition for smooth effect */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Media query for small devices */
+@media (max-width: 768px) {
+    .about-image-overlay {
+        right: 50%; /* Center horizontally */
+        transform: translateX(50%); /* Adjust to center */
+        bottom: 10px; /* Optional: Adjust bottom position */
+        font-size: 0.9em; /* Adjust font size if necessary */
+    }
+}
+
+/* Responsive adjustments for tablet (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem; /* Adjusted font size for h1 */
+    }
+
+    h2 {
+        font-size: 2rem; /* Adjusted font size for h2 */
+    }
+
+    .grid-masonry {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust grid for tablet */
+        grid-auto-rows: 200px; /* Adjust row height for tablet */
+    }
+
+    #home .container {
+        padding-top: 5rem; /* Adjust padding for home section */
+    }
+
+    .btn-primary {
+        padding: 0.5rem 1.5rem; /* Adjust button padding for tablet */
+    }
+}
+
+/* Responsive adjustments for laptop (1024px and above) */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 3rem; /* Adjusted font size for h1 */
+    }
+
+    h2 {
+        font-size: 2.5rem; /* Adjusted font size for h2 */
+    }
+
+    .grid-masonry {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid for laptop */
+        grid-auto-rows: 250px; /* Adjust row height for laptop */
+    }
+
+    #home .container {
+        padding-top: 6rem; /* Adjust padding for home section */
+    }
+
+    .btn-primary {
+        padding: 0.75rem 2rem; /* Adjust button padding for laptop */
+    }
+}
+
+/* Parallax effect for CTA section */
+#cta {
+    background-image: url('./images/bgimage.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; /* Ensure the background image doesn't repeat */
+}
+
+/* Adjust for small devices */
+@media (max-width: 640px) {
+    #cta {
+        background-position: center right -350px; /* Adjusted to center right to show faces */
+        padding: 2rem 0; /* Adjust padding for mobile if needed */
+    }
+}
+
+/* Adjust for tablets */
+@media (min-width: 641px) and (max-width: 1023px) {
+    #cta {
+        background-position: center right -300px; /* Adjusted position to show important parts of the image */
+        background-size: cover; /* Ensures image covers the section on tablets */
+        padding: 3rem 0; /* Increased padding for better spacing on tablets */
+    }
+}
+
+/* Adjust for small laptops */
+@media (min-width: 1024px) and (max-width: 1280px) {
+    #cta {
+        background-position: center top; /* Adjusted position to keep content visible on smaller laptops */
+        background-size: cover;
+        padding: 4rem 0; /* Increased padding for a balanced look on smaller laptops */
+    }
+}
+
+/* Adjust for large devices */
+@media (min-width: 1281px) {
+    #cta {
+        background-position: center; /* Center the background image for large devices */
+    }
+}
